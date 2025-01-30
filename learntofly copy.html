@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Ruffle Example">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+  <title>Doom</title>
+  <script src="main.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #ruffle {
+      margin: auto;
+    }
+  </style>
+  <noscript>Your browser doesn't have JavaScript enabled. Please enable JavaScript or switch to a browser that supports it.</noscript>
+</head>
+<body>
+<div id='ruffle' class="gameloc"></div>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script id="gabe">
+  window.RufflePlayer = window.RufflePlayer || {};
+  window.addEventListener("load", (event) => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("ruffle");
+    player.style.width = "1366px";
+    player.style.height = "768px";
+    container.appendChild(player);
+    player.load("../ruffle/flashfiles/doom.swf");
+  });
+</script>
+</body>
+</html>
